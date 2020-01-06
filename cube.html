@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="头条号：小郑搞码事">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D</title>
+  <style>
+    /* init style */
+    body{
+      margin:0;
+      background-color:black;
+    }
+    /* big cube */
+    .wrap{
+      height:200px;
+      background-color:black;
+      margin-top:150px;
+      perspective: 1000px;
+    }
+    .wrap .cube{
+      position: relative;
+      width:200px;
+      height:200px;
+      /* background-color:rgba(0,0,0,.5); */
+      margin:0 auto;
+      transform-style: preserve-3d;
+      transform:rotateX(0deg) rotateY(0deg);
+      animation: anction 20s linear infinite;
+    }
+    .wrap .cube div{
+      position: absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      font-size:20px;
+      color:red;
+      text-align: center;
+      transition:transform 0.3s ease-in;
+    }
+    .wrap .cube .front{
+      background-color:rgba(255,0,0,.5);
+      transform:translateZ(100px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .back{
+      background-color:rgba(255,255,0,.5);
+      transform:translateZ(-100px) rotateY(180deg);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .right{
+      background-color:rgba(0,255,0,.5);
+      transform:rotateY(90deg) translateZ(100px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .left{
+      background-color:rgba(0,0,255,.5);
+      transform:rotateY(-90deg) translateZ(100px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .top{
+      background-color:rgba(255,0,255,.5);
+      transform:rotateX(90deg) translateZ(100px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .bottom{
+      background-color:rgba(100,100,0,.5);
+      transform:rotateX(-90deg) translateZ(100px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    /* inline cube */
+    .wrap .cube i{
+      position: absolute;
+      left:50%;
+      top:50%;
+      margin-top:-50px;
+      margin-left:-50px;
+      width:100px;
+      height:100px;
+    }
+    .wrap .cube .i-front{
+      background-color:rgba(255,0,0,.5);
+      transform:translateZ(50px);
+      background-image: url(../images/logo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .i-back{
+      background-color:rgba(255,255,0,.5);
+      transform:translateZ(-50px) rotateY(180deg);
+      background-image: url(../images/logo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .i-right{
+      background-color:rgba(0,255,0,.5);
+      transform:rotateY(90deg) translateZ(50px);
+      background-image: url(../images/logo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .i-left{
+      background-color:rgba(0,0,255,.5);
+      transform:rotateY(-90deg) translateZ(50px);
+      background-image: url(../images/logo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .i-top{
+      background-color:rgba(255,0,255,.5);
+      transform:rotateX(90deg) translateZ(50px);
+      background-image: url(../images/logo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube .i-bottom{
+      background-color:rgba(100,100,0,.5);
+      transform:rotateX(-90deg) translateZ(50px);
+      background-image: url(../images/logo.jpg);
+      background-size:cover;
+    }
+
+    /* hover cube */
+    .wrap .cube:hover .front{
+      background-color:rgba(255,0,0,.5);
+      transform:translateZ(200px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube:hover .back{
+      background-color:rgba(255,255,0,.5);
+      transform:translateZ(-200px) rotateY(180deg);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube:hover .right{
+      background-color:rgba(0,255,0,.5);
+      transform:rotateY(90deg) translateZ(200px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube:hover .left{
+      background-color:rgba(0,0,255,.5);
+      transform:rotateY(-90deg) translateZ(200px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube:hover .top{
+      background-color:rgba(255,0,255,.5);
+      transform:rotateX(90deg) translateZ(200px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+    .wrap .cube:hover .bottom{
+      background-color:rgba(100,100,0,.5);
+      transform:rotateX(-90deg) translateZ(200px);
+      background-image: url(../images/demo.jpg);
+      background-size:cover;
+    }
+
+    /* keyframes */
+    @keyframes anction {
+      0%{transform: rotateX(0deg) rotate(0deg);}
+      100%{transform: rotateX(360deg) rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="cube">
+      <div class="front">正面</div>
+      <div class="back">反面</div>
+      <div class="right">右面</div>
+      <div class="left">左面</div>
+      <div class="top">上面</div>
+      <div class="bottom">下面</div>
+      <i class="i-front"></i>
+      <i class="i-back"></i>
+      <i class="i-right"></i>
+      <i class="i-left"></i>
+      <i class="i-top"></i>
+      <i class="i-bottom"></i>
+    </div>
+  </div>
+</body>
+</html>
